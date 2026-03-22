@@ -1,0 +1,10 @@
+tabla,columna,tipo_dato,descripcion,es_pii,data_owner,retencion_dias,clasificacion,constraint_tipo
+eventos,evento_id,VARCHAR(12),Identificador único del evento digital,No,analytics@retailtech.co,365,público,PK
+eventos,cliente_id,VARCHAR(10),FK al cliente (NULL si anónimo),No,analytics@retailtech.co,365,confidencial,FK
+eventos,session_id,VARCHAR(14),Identificador de sesión web/app,No,analytics@retailtech.co,90,interno,
+eventos,tipo_evento,VARCHAR(30),Tipo de interacción digital,No,analytics@retailtech.co,365,público,
+eventos,timestamp,TIMESTAMP,Fecha y hora exacta del evento,No,analytics@retailtech.co,365,interno,
+eventos,producto_id,VARCHAR(10),FK al producto (si aplica),No,analytics@retailtech.co,365,público,FK
+eventos,dispositivo,VARCHAR(20),Tipo de dispositivo del usuario,No,analytics@retailtech.co,365,público,
+eventos,pais,VARCHAR(50),País del evento,No,analytics@retailtech.co,365,público,
+eventos,duracion_seg,INTEGER,Duración de la interacción en segundos,No,analytics@retailtech.co,90,público,

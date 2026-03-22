@@ -1,0 +1,730 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data Governance Portal - Meli Challenge</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body { font-size: 0.85rem; background-color: #f8f9fa; }
+            .sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 200px; background: #343a40; padding-top: 20px; }
+            .sidebar .nav-link { color: #adb5bd; }
+            .sidebar .nav-link:hover { color: white; background: #495057; }
+            .sidebar .nav-link.active { color: white; background: #0d6efd; }
+            .content { margin-left: 220px; padding: 20px; }
+            .table-responsive { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+            th { background-color: #f1f3f5 !important; }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar d-flex flex-column p-3">
+            <h5 class="text-white border-bottom pb-2">📦 Tablas</h5>
+            <nav class="nav flex-column">
+                <a class="nav-link" href="#clientes">CLIENTES</a>
+<a class="nav-link" href="#detalle_pedidos">DETALLE_PEDIDOS</a>
+<a class="nav-link" href="#eventos">EVENTOS</a>
+<a class="nav-link" href="#pedidos">PEDIDOS</a>
+<a class="nav-link" href="#productos">PRODUCTOS</a>
+
+            </nav>
+        </div>
+        <div class="content">
+            <div class="d-flex justify-content-between align-items-center border-bottom mb-4">
+                <h2>📊 Portal de Gobierno de Datos</h2>
+                <span class="badge bg-info text-dark">Versión 1.0 - Meli Challenge</span>
+            </div>
+            <div class="alert alert-light border">
+                <strong>Instrucciones:</strong> Selecciona una tabla en el menú lateral para ver su diccionario de datos, clasificación de PII y políticas de retención.
+            </div>
+            
+        <div id="clientes" class="mb-5 mt-4">
+            <h3 class="border-bottom pb-2 text-primary">CLIENTES</h3>
+            <p class="text-muted small">Metadata técnica y de gobierno para la entidad clientes.</p>
+            <div class="table-responsive">
+                <table class="dataframe table table-striped table-hover table-sm">
+  <thead>
+    <tr style="text-align: right;">
+      <th>tabla</th>
+      <th>columna</th>
+      <th>tipo_dato</th>
+      <th>descripcion</th>
+      <th>es_pii</th>
+      <th>data_owner</th>
+      <th>retencion_dias</th>
+      <th>clasificacion</th>
+      <th>constraint_tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>clientes</td>
+      <td>cliente_id</td>
+      <td>VARCHAR(10)</td>
+      <td>Identificador único del cliente</td>
+      <td>No</td>
+      <td>crm@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>PK</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>nombre</td>
+      <td>VARCHAR(100)</td>
+      <td>Nombre de pila del cliente</td>
+      <td>Sí</td>
+      <td>crm@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>apellido</td>
+      <td>VARCHAR(100)</td>
+      <td>Apellido del cliente</td>
+      <td>Sí</td>
+      <td>crm@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>email</td>
+      <td>VARCHAR(200)</td>
+      <td>Correo electrónico de contacto</td>
+      <td>Sí</td>
+      <td>crm@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>telefono</td>
+      <td>VARCHAR(30)</td>
+      <td>Teléfono de contacto</td>
+      <td>Sí</td>
+      <td>crm@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>ciudad</td>
+      <td>VARCHAR(100)</td>
+      <td>Ciudad de residencia</td>
+      <td>No</td>
+      <td>crm@retailtech.co</td>
+      <td>365</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>pais</td>
+      <td>VARCHAR(50)</td>
+      <td>País de residencia</td>
+      <td>No</td>
+      <td>crm@retailtech.co</td>
+      <td>365</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>segmento</td>
+      <td>VARCHAR(20)</td>
+      <td>Segmento comercial del cliente</td>
+      <td>No</td>
+      <td>marketing@retailtech.co</td>
+      <td>365</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>fecha_registro</td>
+      <td>DATE</td>
+      <td>Fecha en que el cliente se registró</td>
+      <td>No</td>
+      <td>crm@retailtech.co</td>
+      <td>3650</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>fecha_consentimiento</td>
+      <td>DATE</td>
+      <td>Fecha de aceptación de política de datos (GDPR/Ley 1581)</td>
+      <td>No</td>
+      <td>legal@retailtech.co</td>
+      <td>3650</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>activo</td>
+      <td>BOOLEAN</td>
+      <td>Indica si el cliente está activo</td>
+      <td>No</td>
+      <td>crm@retailtech.co</td>
+      <td>365</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>data_owner</td>
+      <td>VARCHAR(100)</td>
+      <td>Correo del responsable del dato</td>
+      <td>No</td>
+      <td>governance@retailtech.co</td>
+      <td>3650</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>clientes</td>
+      <td>clasificacion_dato</td>
+      <td>VARCHAR(20)</td>
+      <td>Nivel de clasificación de seguridad</td>
+      <td>No</td>
+      <td>governance@retailtech.co</td>
+      <td>3650</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+            </div>
+            <a href="catalogo_clientes.csv" class="btn btn-outline-success btn-sm" download>📥 Descargar CSV</a>
+        </div>
+        
+        <div id="detalle_pedidos" class="mb-5 mt-4">
+            <h3 class="border-bottom pb-2 text-primary">DETALLE_PEDIDOS</h3>
+            <p class="text-muted small">Metadata técnica y de gobierno para la entidad detalle_pedidos.</p>
+            <div class="table-responsive">
+                <table class="dataframe table table-striped table-hover table-sm">
+  <thead>
+    <tr style="text-align: right;">
+      <th>tabla</th>
+      <th>columna</th>
+      <th>tipo_dato</th>
+      <th>descripcion</th>
+      <th>es_pii</th>
+      <th>data_owner</th>
+      <th>retencion_dias</th>
+      <th>clasificacion</th>
+      <th>constraint_tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>detalle_pedidos</td>
+      <td>item_id</td>
+      <td>VARCHAR(13)</td>
+      <td>Identificador único de línea de pedido</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>PK</td>
+    </tr>
+    <tr>
+      <td>detalle_pedidos</td>
+      <td>pedido_id</td>
+      <td>VARCHAR(12)</td>
+      <td>FK al pedido</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>FK</td>
+    </tr>
+    <tr>
+      <td>detalle_pedidos</td>
+      <td>producto_id</td>
+      <td>VARCHAR(10)</td>
+      <td>FK al producto</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>FK</td>
+    </tr>
+    <tr>
+      <td>detalle_pedidos</td>
+      <td>cantidad</td>
+      <td>INTEGER</td>
+      <td>Unidades pedidas</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>detalle_pedidos</td>
+      <td>precio_unitario</td>
+      <td>DECIMAL(12,2)</td>
+      <td>Precio unitario al momento de la compra (COP)</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>detalle_pedidos</td>
+      <td>descuento_pct</td>
+      <td>DECIMAL(5,2)</td>
+      <td>Descuento por ítem</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>detalle_pedidos</td>
+      <td>subtotal</td>
+      <td>DECIMAL(14,2)</td>
+      <td>Subtotal de la línea (COP)</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+            </div>
+            <a href="catalogo_detalle_pedidos.csv" class="btn btn-outline-success btn-sm" download>📥 Descargar CSV</a>
+        </div>
+        
+        <div id="eventos" class="mb-5 mt-4">
+            <h3 class="border-bottom pb-2 text-primary">EVENTOS</h3>
+            <p class="text-muted small">Metadata técnica y de gobierno para la entidad eventos.</p>
+            <div class="table-responsive">
+                <table class="dataframe table table-striped table-hover table-sm">
+  <thead>
+    <tr style="text-align: right;">
+      <th>tabla</th>
+      <th>columna</th>
+      <th>tipo_dato</th>
+      <th>descripcion</th>
+      <th>es_pii</th>
+      <th>data_owner</th>
+      <th>retencion_dias</th>
+      <th>clasificacion</th>
+      <th>constraint_tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>eventos</td>
+      <td>evento_id</td>
+      <td>VARCHAR(12)</td>
+      <td>Identificador único del evento digital</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>365</td>
+      <td>público</td>
+      <td>PK</td>
+    </tr>
+    <tr>
+      <td>eventos</td>
+      <td>cliente_id</td>
+      <td>VARCHAR(10)</td>
+      <td>FK al cliente (NULL si anónimo)</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>365</td>
+      <td>confidencial</td>
+      <td>FK</td>
+    </tr>
+    <tr>
+      <td>eventos</td>
+      <td>session_id</td>
+      <td>VARCHAR(14)</td>
+      <td>Identificador de sesión web/app</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>90</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>eventos</td>
+      <td>tipo_evento</td>
+      <td>VARCHAR(30)</td>
+      <td>Tipo de interacción digital</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>365</td>
+      <td>público</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>eventos</td>
+      <td>timestamp</td>
+      <td>TIMESTAMP</td>
+      <td>Fecha y hora exacta del evento</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>365</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>eventos</td>
+      <td>producto_id</td>
+      <td>VARCHAR(10)</td>
+      <td>FK al producto (si aplica)</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>365</td>
+      <td>público</td>
+      <td>FK</td>
+    </tr>
+    <tr>
+      <td>eventos</td>
+      <td>dispositivo</td>
+      <td>VARCHAR(20)</td>
+      <td>Tipo de dispositivo del usuario</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>365</td>
+      <td>público</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>eventos</td>
+      <td>pais</td>
+      <td>VARCHAR(50)</td>
+      <td>País del evento</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>365</td>
+      <td>público</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>eventos</td>
+      <td>duracion_seg</td>
+      <td>INTEGER</td>
+      <td>Duración de la interacción en segundos</td>
+      <td>No</td>
+      <td>analytics@retailtech.co</td>
+      <td>90</td>
+      <td>público</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+            </div>
+            <a href="catalogo_eventos.csv" class="btn btn-outline-success btn-sm" download>📥 Descargar CSV</a>
+        </div>
+        
+        <div id="pedidos" class="mb-5 mt-4">
+            <h3 class="border-bottom pb-2 text-primary">PEDIDOS</h3>
+            <p class="text-muted small">Metadata técnica y de gobierno para la entidad pedidos.</p>
+            <div class="table-responsive">
+                <table class="dataframe table table-striped table-hover table-sm">
+  <thead>
+    <tr style="text-align: right;">
+      <th>tabla</th>
+      <th>columna</th>
+      <th>tipo_dato</th>
+      <th>descripcion</th>
+      <th>es_pii</th>
+      <th>data_owner</th>
+      <th>retencion_dias</th>
+      <th>clasificacion</th>
+      <th>constraint_tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pedidos</td>
+      <td>pedido_id</td>
+      <td>VARCHAR(12)</td>
+      <td>Identificador único del pedido</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>PK</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>cliente_id</td>
+      <td>VARCHAR(10)</td>
+      <td>FK al cliente que realizó el pedido</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>FK</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>fecha_pedido</td>
+      <td>DATE</td>
+      <td>Fecha en que se realizó el pedido</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>fecha_entrega</td>
+      <td>DATE</td>
+      <td>Fecha de entrega efectiva (NULL si no entregado)</td>
+      <td>No</td>
+      <td>logistica@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>estado</td>
+      <td>VARCHAR(20)</td>
+      <td>Estado actual del pedido</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>365</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>canal</td>
+      <td>VARCHAR(20)</td>
+      <td>Canal de venta</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>metodo_pago</td>
+      <td>VARCHAR(30)</td>
+      <td>Método de pago utilizado</td>
+      <td>No</td>
+      <td>finanzas@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>pais_envio</td>
+      <td>VARCHAR(50)</td>
+      <td>País destino del envío</td>
+      <td>No</td>
+      <td>logistica@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>total_bruto</td>
+      <td>DECIMAL(14,2)</td>
+      <td>Total del pedido antes de descuentos (COP)</td>
+      <td>No</td>
+      <td>finanzas@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>descuento_pct</td>
+      <td>DECIMAL(5,2)</td>
+      <td>Porcentaje de descuento aplicado</td>
+      <td>No</td>
+      <td>ventas@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>pedidos</td>
+      <td>total_neto</td>
+      <td>DECIMAL(14,2)</td>
+      <td>Total final pagado (COP)</td>
+      <td>No</td>
+      <td>finanzas@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+            </div>
+            <a href="catalogo_pedidos.csv" class="btn btn-outline-success btn-sm" download>📥 Descargar CSV</a>
+        </div>
+        
+        <div id="productos" class="mb-5 mt-4">
+            <h3 class="border-bottom pb-2 text-primary">PRODUCTOS</h3>
+            <p class="text-muted small">Metadata técnica y de gobierno para la entidad productos.</p>
+            <div class="table-responsive">
+                <table class="dataframe table table-striped table-hover table-sm">
+  <thead>
+    <tr style="text-align: right;">
+      <th>tabla</th>
+      <th>columna</th>
+      <th>tipo_dato</th>
+      <th>descripcion</th>
+      <th>es_pii</th>
+      <th>data_owner</th>
+      <th>retencion_dias</th>
+      <th>clasificacion</th>
+      <th>constraint_tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>productos</td>
+      <td>producto_id</td>
+      <td>VARCHAR(10)</td>
+      <td>Identificador único del producto</td>
+      <td>No</td>
+      <td>catalogo@retailtech.co</td>
+      <td>3650</td>
+      <td>interno</td>
+      <td>PK</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>nombre_producto</td>
+      <td>VARCHAR(200)</td>
+      <td>Nombre comercial del producto</td>
+      <td>No</td>
+      <td>catalogo@retailtech.co</td>
+      <td>3650</td>
+      <td>público</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>categoria</td>
+      <td>VARCHAR(50)</td>
+      <td>Categoría principal del producto</td>
+      <td>No</td>
+      <td>catalogo@retailtech.co</td>
+      <td>3650</td>
+      <td>público</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>subcategoria</td>
+      <td>VARCHAR(50)</td>
+      <td>Subcategoría del producto</td>
+      <td>No</td>
+      <td>catalogo@retailtech.co</td>
+      <td>3650</td>
+      <td>público</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>precio_venta</td>
+      <td>DECIMAL(12,2)</td>
+      <td>Precio de venta al público (COP)</td>
+      <td>No</td>
+      <td>catalogo@retailtech.co</td>
+      <td>365</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>costo</td>
+      <td>DECIMAL(12,2)</td>
+      <td>Costo de adquisición (COP)</td>
+      <td>No</td>
+      <td>finanzas@retailtech.co</td>
+      <td>365</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>stock_disponible</td>
+      <td>INTEGER</td>
+      <td>Unidades disponibles en inventario</td>
+      <td>No</td>
+      <td>logistica@retailtech.co</td>
+      <td>90</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>proveedor_id</td>
+      <td>VARCHAR(10)</td>
+      <td>ID del proveedor</td>
+      <td>No</td>
+      <td>compras@retailtech.co</td>
+      <td>1825</td>
+      <td>interno</td>
+      <td>FK</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>nombre_proveedor</td>
+      <td>VARCHAR(200)</td>
+      <td>Nombre del proveedor</td>
+      <td>No</td>
+      <td>compras@retailtech.co</td>
+      <td>1825</td>
+      <td>confidencial</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>fecha_creacion</td>
+      <td>DATE</td>
+      <td>Fecha de alta del producto</td>
+      <td>No</td>
+      <td>catalogo@retailtech.co</td>
+      <td>3650</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>productos</td>
+      <td>activo</td>
+      <td>BOOLEAN</td>
+      <td>Indica si el producto está disponible</td>
+      <td>No</td>
+      <td>catalogo@retailtech.co</td>
+      <td>365</td>
+      <td>interno</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+            </div>
+            <a href="catalogo_productos.csv" class="btn btn-outline-success btn-sm" download>📥 Descargar CSV</a>
+        </div>
+        
+        </div>
+    </body>
+    </html>
+    

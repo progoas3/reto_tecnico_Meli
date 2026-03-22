@@ -1,0 +1,12 @@
+tabla,columna,tipo_dato,descripcion,es_pii,data_owner,retencion_dias,clasificacion,constraint_tipo
+pedidos,pedido_id,VARCHAR(12),Identificador único del pedido,No,ventas@retailtech.co,1825,interno,PK
+pedidos,cliente_id,VARCHAR(10),FK al cliente que realizó el pedido,No,ventas@retailtech.co,1825,interno,FK
+pedidos,fecha_pedido,DATE,Fecha en que se realizó el pedido,No,ventas@retailtech.co,1825,interno,
+pedidos,fecha_entrega,DATE,Fecha de entrega efectiva (NULL si no entregado),No,logistica@retailtech.co,1825,interno,
+pedidos,estado,VARCHAR(20),Estado actual del pedido,No,ventas@retailtech.co,365,interno,
+pedidos,canal,VARCHAR(20),Canal de venta,No,ventas@retailtech.co,1825,interno,
+pedidos,metodo_pago,VARCHAR(30),Método de pago utilizado,No,finanzas@retailtech.co,1825,confidencial,
+pedidos,pais_envio,VARCHAR(50),País destino del envío,No,logistica@retailtech.co,1825,interno,
+pedidos,total_bruto,"DECIMAL(14,2)",Total del pedido antes de descuentos (COP),No,finanzas@retailtech.co,1825,confidencial,
+pedidos,descuento_pct,"DECIMAL(5,2)",Porcentaje de descuento aplicado,No,ventas@retailtech.co,1825,interno,
+pedidos,total_neto,"DECIMAL(14,2)",Total final pagado (COP),No,finanzas@retailtech.co,1825,confidencial,

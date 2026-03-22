@@ -1,0 +1,12 @@
+tabla,columna,tipo_dato,descripcion,es_pii,data_owner,retencion_dias,clasificacion,constraint_tipo
+productos,producto_id,VARCHAR(10),Identificador único del producto,No,catalogo@retailtech.co,3650,interno,PK
+productos,nombre_producto,VARCHAR(200),Nombre comercial del producto,No,catalogo@retailtech.co,3650,público,
+productos,categoria,VARCHAR(50),Categoría principal del producto,No,catalogo@retailtech.co,3650,público,
+productos,subcategoria,VARCHAR(50),Subcategoría del producto,No,catalogo@retailtech.co,3650,público,
+productos,precio_venta,"DECIMAL(12,2)",Precio de venta al público (COP),No,catalogo@retailtech.co,365,interno,
+productos,costo,"DECIMAL(12,2)",Costo de adquisición (COP),No,finanzas@retailtech.co,365,confidencial,
+productos,stock_disponible,INTEGER,Unidades disponibles en inventario,No,logistica@retailtech.co,90,interno,
+productos,proveedor_id,VARCHAR(10),ID del proveedor,No,compras@retailtech.co,1825,interno,FK
+productos,nombre_proveedor,VARCHAR(200),Nombre del proveedor,No,compras@retailtech.co,1825,confidencial,
+productos,fecha_creacion,DATE,Fecha de alta del producto,No,catalogo@retailtech.co,3650,interno,
+productos,activo,BOOLEAN,Indica si el producto está disponible,No,catalogo@retailtech.co,365,interno,

@@ -1,0 +1,41 @@
+timestamp,tabla,regla,campo_evaluado,total_recibidos,pasan_a_calidad,enviados_a_cuarentena,tasa_error_pct
+2026-03-21 19:45:15,CLIENTES,R1_Duplicados,cliente_id,300,300,0,0.00%
+2026-03-21 19:45:15,CLIENTES,R2_Nulos,Validación de Nulos en campos críticos,300,288,12,4.00%
+2026-03-21 19:45:15,CLIENTES,R3_Email,Validación de formato en columna: email,288,288,0,0.00%
+2026-03-21 19:45:15,CLIENTES,R4_Moneda,Validación de integridad financiera (monto_total),288,288,0,0.00%
+2026-03-21 19:45:15,CLIENTES,R5_Fechas,fecha_registro,288,288,0,0.00%
+2026-03-21 19:45:15,CLIENTES,R6_Categoricos,categoria,288,288,0,0.00%
+2026-03-21 19:45:15,CLIENTES,R7_Formato_ID,cliente_id,288,288,0,0.00%
+2026-03-21 19:45:15,CLIENTES,R8_Hashing_PII,Anonimización de datos sensibles,288,288,0,0.00%
+2026-03-21 19:45:15,PEDIDOS,R1_Duplicados,pedido_id,1200,1179,21,1.75%
+2026-03-21 19:45:15,PEDIDOS,R2_Nulos,Validación de Nulos en campos críticos,1179,1179,0,0.00%
+2026-03-21 19:45:15,PEDIDOS,R3_Email,Validación de formato en columna: owner_email,1179,1179,0,0.00%
+2026-03-21 19:45:15,PEDIDOS,R4_Moneda,Validación de integridad financiera (monto_total),1179,1179,0,0.00%
+2026-03-21 19:45:15,PEDIDOS,R5_Fechas,fecha_pedido,1179,1179,0,0.00%
+2026-03-21 19:45:15,PEDIDOS,R6_Categoricos,categoria,1179,1179,0,0.00%
+2026-03-21 19:45:15,PEDIDOS,R7_Formato_ID,pedido_id,1179,1179,0,0.00%
+2026-03-21 19:45:15,PEDIDOS,R8_Hashing_PII,Anonimización de datos sensibles,1179,1179,0,0.00%
+2026-03-21 19:45:15,PRODUCTOS,R1_Duplicados,producto_id,80,80,0,0.00%
+2026-03-21 19:45:15,PRODUCTOS,R2_Nulos,Validación de Nulos en campos críticos,80,80,0,0.00%
+2026-03-21 19:45:15,PRODUCTOS,R3_Email,Validación de formato en columna: owner_email,80,80,0,0.00%
+2026-03-21 19:45:15,PRODUCTOS,R4_Moneda,Validación de integridad financiera (precio_venta),80,80,0,0.00%
+2026-03-21 19:45:15,PRODUCTOS,R5_Fechas,fecha_registro,80,80,0,0.00%
+2026-03-21 19:45:15,PRODUCTOS,R6_Categoricos,categoria,80,80,0,0.00%
+2026-03-21 19:45:15,PRODUCTOS,R7_Formato_ID,producto_id,80,80,0,0.00%
+2026-03-21 19:45:15,PRODUCTOS,R8_Hashing_PII,Anonimización de datos sensibles,80,80,0,0.00%
+2026-03-21 19:45:15,EVENTOS,R1_Duplicados,evento_id,4000,4000,0,0.00%
+2026-03-21 19:45:15,EVENTOS,R2_Nulos,Validación de Nulos en campos críticos,4000,3816,184,4.60%
+2026-03-21 19:45:15,EVENTOS,R3_Email,Validación de formato en columna: owner_email,3816,3816,0,0.00%
+2026-03-21 19:45:15,EVENTOS,R4_Moneda,Validación de integridad financiera (monto_total),3816,3816,0,0.00%
+2026-03-21 19:45:16,EVENTOS,R5_Fechas,fecha_registro,3816,3816,0,0.00%
+2026-03-21 19:45:16,EVENTOS,R6_Categoricos,tipo_evento,3816,3816,0,0.00%
+2026-03-21 19:45:16,EVENTOS,R7_Formato_ID,evento_id,3816,3816,0,0.00%
+2026-03-21 19:45:16,EVENTOS,R8_Hashing_PII,Anonimización de datos sensibles,3816,3816,0,0.00%
+2026-03-21 19:45:16,DETALLE_PEDIDOS,R1_Duplicados,item_id,4177,4177,0,0.00%
+2026-03-21 19:45:16,DETALLE_PEDIDOS,R2_Nulos,Validación de Nulos en campos críticos,4177,4177,0,0.00%
+2026-03-21 19:45:16,DETALLE_PEDIDOS,R3_Email,Validación de formato en columna: owner_email,4177,4177,0,0.00%
+2026-03-21 19:45:16,DETALLE_PEDIDOS,R4_Moneda,Validación de integridad financiera (monto_total),4177,4177,0,0.00%
+2026-03-21 19:45:16,DETALLE_PEDIDOS,R5_Fechas,fecha_pedido,4177,4177,0,0.00%
+2026-03-21 19:45:16,DETALLE_PEDIDOS,R6_Categoricos,categoria,4177,4177,0,0.00%
+2026-03-21 19:45:16,DETALLE_PEDIDOS,R7_Formato_ID,item_id,4177,4177,0,0.00%
+2026-03-21 19:45:16,DETALLE_PEDIDOS,R8_Hashing_PII,Anonimización de datos sensibles,4177,4177,0,0.00%

@@ -1,0 +1,14 @@
+tabla,columna,tipo_dato,descripcion,es_pii,data_owner,retencion_dias,clasificacion,constraint_tipo
+clientes,cliente_id,VARCHAR(10),Identificador único del cliente,No,crm@retailtech.co,1825,confidencial,PK
+clientes,nombre,VARCHAR(100),Nombre de pila del cliente,Sí,crm@retailtech.co,1825,confidencial,
+clientes,apellido,VARCHAR(100),Apellido del cliente,Sí,crm@retailtech.co,1825,confidencial,
+clientes,email,VARCHAR(200),Correo electrónico de contacto,Sí,crm@retailtech.co,1825,confidencial,
+clientes,telefono,VARCHAR(30),Teléfono de contacto,Sí,crm@retailtech.co,1825,confidencial,
+clientes,ciudad,VARCHAR(100),Ciudad de residencia,No,crm@retailtech.co,365,interno,
+clientes,pais,VARCHAR(50),País de residencia,No,crm@retailtech.co,365,interno,
+clientes,segmento,VARCHAR(20),Segmento comercial del cliente,No,marketing@retailtech.co,365,interno,
+clientes,fecha_registro,DATE,Fecha en que el cliente se registró,No,crm@retailtech.co,3650,interno,
+clientes,fecha_consentimiento,DATE,Fecha de aceptación de política de datos (GDPR/Ley 1581),No,legal@retailtech.co,3650,confidencial,
+clientes,activo,BOOLEAN,Indica si el cliente está activo,No,crm@retailtech.co,365,interno,
+clientes,data_owner,VARCHAR(100),Correo del responsable del dato,No,governance@retailtech.co,3650,interno,
+clientes,clasificacion_dato,VARCHAR(20),Nivel de clasificación de seguridad,No,governance@retailtech.co,3650,interno,

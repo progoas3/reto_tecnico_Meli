@@ -1,0 +1,8 @@
+tabla,columna,tipo_dato,descripcion,es_pii,data_owner,retencion_dias,clasificacion,constraint_tipo
+detalle_pedidos,item_id,VARCHAR(13),Identificador único de línea de pedido,No,ventas@retailtech.co,1825,interno,PK
+detalle_pedidos,pedido_id,VARCHAR(12),FK al pedido,No,ventas@retailtech.co,1825,interno,FK
+detalle_pedidos,producto_id,VARCHAR(10),FK al producto,No,ventas@retailtech.co,1825,interno,FK
+detalle_pedidos,cantidad,INTEGER,Unidades pedidas,No,ventas@retailtech.co,1825,interno,
+detalle_pedidos,precio_unitario,"DECIMAL(12,2)",Precio unitario al momento de la compra (COP),No,ventas@retailtech.co,1825,confidencial,
+detalle_pedidos,descuento_pct,"DECIMAL(5,2)",Descuento por ítem,No,ventas@retailtech.co,1825,interno,
+detalle_pedidos,subtotal,"DECIMAL(14,2)",Subtotal de la línea (COP),No,ventas@retailtech.co,1825,confidencial,
