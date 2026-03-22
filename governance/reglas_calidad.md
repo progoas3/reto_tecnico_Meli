@@ -59,7 +59,11 @@ Cumplimiento de normativas de protección de datos personales.
 * **Técnica:** Hashing SHA-256. 
 * **Nota:** Los datos personales se vuelven irreconocibles pero mantienen su consistencia para análisis de "unicidad" sin comprometer la identidad del usuario.
 
-
+### R9 - Imputación de Inventario (Operaciones)
+Asegura la continuidad de los cálculos de stock y evita falsos negativos en alertas de reabastecimiento.
+* **Técnica:** Imputación por valor constante (fillna(0)).
+* **Alcance:** Exclusivo para la entidad PRODUCTOS sobre la columna stock_disponible.
+* **Nota:** Los valores nulos detectados se asumen como "Sin Existencias" (0). Esto protege las consultas SQL de alertas críticas, garantizando que un dato ausente sea tratado como una prioridad de compra y no como un error de sistema.
 
 ---
 

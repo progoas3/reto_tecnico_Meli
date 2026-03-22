@@ -1,7 +1,6 @@
 import pandas as pd
 import os
 
-
 def generar_reporte_ejecutivo():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     logs_root = os.path.join(base_dir, "logs")
@@ -20,55 +19,53 @@ def generar_reporte_ejecutivo():
 
         if not os.path.exists(ruta_csv): return
 
-        print(f"Procesando ejecución: {ultima_ejecucion}")
-
         df_log = pd.read_csv(ruta_csv)
         df_log.columns = df_log.columns.str.strip()
 
-        # Ajuste de tasa para cálculos
-        if 'tasa_error_pct' in df_log.columns:
-            df_log['tasa_error_pct_num'] = df_log['tasa_error_pct'].astype(str).str.replace('%', '').astype(float)
-
-        # --- INFORMACIÓN DE VERDAD ---
-        # El total real de la tabla es lo que entró en la primera regla (R1)
-        # El total limpio es lo que quedó después de la última regla (R8)
-        resumen = df_log.groupby('tabla').agg({
+        # --- SECCIÓN 1: PROCESAMIENTO DE TOTALES ---
+        resumen_tablas = df_log.groupby('tabla').agg({
             'total_recibidos': 'first',
-            'pasan_a_calidad': 'last'
+            'enviados_a_cuarentena': 'sum'  # Suma de todos los deltas reales
         }).reset_index()
-
-        # La cuarentena real es la diferencia entre el inicio y el fin
-        resumen['enviados_a_cuarentena'] = resumen['total_recibidos'] - resumen['pasan_a_calidad']
-        resumen['tasa_error_total'] = (
-                                              (resumen['enviados_a_cuarentena'] / resumen['total_recibidos']) * 100
-                                      ).round(2).astype(str) + '%'
 
         nombre_reporte = f"reporte_calidad_{ultima_ejecucion}.md"
         ruta_salida = os.path.join(outputs_dir, nombre_reporte)
 
         with open(ruta_salida, "w", encoding="utf-8") as f:
-            f.write(f"# 📊 Reporte de Calidad de Datos - {ultima_ejecucion}\n\n")
-            f.write(f"**Meli Technical Challenge - Auditoría de Datos Capa Silver**\n\n")
+            f.write(f"# 📊 Reporte Ejecutivo de Calidad de Datos\n")
+            f.write(f"> **Ejecución:** `{ultima_ejecucion}` | **Capa:** Silver (Clean)\n\n")
 
-            f.write("## 1. Resumen Consolidado (Total Real)\n")
-            try:
-                f.write(resumen.to_markdown(index=False) + "\n\n")
-            except:
-                f.write(resumen.to_string(index=False) + "\n\n")
+            # --- SECCIÓN 1: PERFILADO (DIAGNÓSTICO) ---
+            f.write("## 1. Perfilado de Datos Inicial (Diagnóstico)\n")
+            f.write("| Tabla | Registros | Errores Detectados | % Calidad Inicial | Estado |\n")
+            f.write("| :--- | :---: | :---: | :---: | :--- |\n")
 
-            f.write("## 2. Detalle de Impacto por Regla\n")
-            f.write("Desglose de cuántos registros filtró cada regla individualmente:\n\n")
-            detalle_reglas = df_log[['tabla', 'regla', 'campo_evaluado', 'enviados_a_cuarentena', 'tasa_error_pct']]
-            try:
-                f.write(detalle_reglas.to_markdown(index=False) + "\n\n")
-            except:
-                f.write(detalle_reglas.to_string(index=False) + "\n\n")
+            for _, row in resumen_tablas.iterrows():
+                total = row['total_recibidos']
+                errores = row['enviados_a_cuarentena']
+                calidad_pct = round(((total - errores) / total) * 100, 2)
+                status = "✅ Óptimo" if calidad_pct > 90 else "🚨 Crítico"
+                f.write(f"| **{row['tabla']}** | {total} | {errores} | {calidad_pct}% | {status} |\n")
 
-            f.write("--- \n")
-            f.write(f"- **Carpeta de Ejecución:** `{ultima_ejecucion}`\n")
-            f.write(f"- **Capa Destino:** Clean (Silver Area)\n")
+            # --- SECCIÓN 2: DETALLE REAL POR REGLA ---
+            f.write("\n## 2. Ejecución de Reglas de Calidad (Impacto Real)\n")
+            f.write("A continuación se detalla cuántos registros filtró cada regla de forma independiente:\n\n")
 
-        print(f"Reporte con datos reales guardado como: {nombre_reporte}")
+            # Filtramos para no mostrar ruido: si la regla no afectó a nada, se ve más limpio
+            df_detalle = df_log[['tabla', 'regla', 'campo_evaluado', 'enviados_a_cuarentena', 'tasa_error_pct']]
+
+            f.write(df_detalle.to_markdown(index=False) + "\n\n")
+
+            # --- SECCIÓN 3: TRANSFORMACIONES ---
+            f.write("## 3. Transformaciones Críticas y Seguridad\n")
+            f.write("* **Anonimización (PII):** Hashing SHA-256 aplicado (R8).\n")
+            f.write("* **Imputación (R9):** Solo aplicada a la tabla PRODUCTOS para corregir stock `NaN`.\n")
+            f.write("* **Integridad:** Eliminación de duplicados por PK (R1).\n\n")
+
+            f.write("---\n")
+            f.write(f"**Resultado:** Procesamiento finalizado. Datos persistidos en DuckDB.\n")
+
+        print(f"Reporte corregido generado en: {ruta_salida}")
 
     except Exception as e:
-        print(f"Error crítico: {e}")
+        print(f"Error: {e}")

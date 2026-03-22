@@ -2,6 +2,8 @@ from modules.carga import cargar_y_presentar_datos
 from modules.reglas_calidad import *
 from modules.utils import *
 from modules.reporte_calidad import *
+from modules.database import *
+from modules.analisisSQL import *
 import time
 
 def ejecutar_full_pipeline():
@@ -116,12 +118,31 @@ def ejecutar_full_pipeline():
             registrar_auditoria(nombre_key, "R8_Hashing_PII", "Datos_Sensibles", n_entrada, len(df_work), carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R8_Hashing_PII", t_ref)
 
+            # --- R9: MANEJOR STOCK NULOS EN PRODCUTOS ---
+            df_work = imputar_stock_productos(df_work)
+            registrar_auditoria(nombre_key, "R9_Manejo stock nulos en productos", "Datos Nulos en productos", n_entrada, len(df_work), carpeta_logs)
+            t_ref = anotar_paso(nombre_key, "R9_Manejo stock nulos en productos", t_ref)
+
+            # --- R10:
+            df_work = estandarizar_y_enmascarar_telefonos(df_work)
+            registrar_auditoria(nombre_key, "R10_MANEJO FORMATO DE TELEFONOS", "Datos Telefonicos en un estandar correcto", n_entrada,
+                                len(df_work), carpeta_logs)
+            t_ref = anotar_paso(nombre_key, "R10_MANEJO FORMATO DE TELEFONOS", t_ref)
+
             # --- GUARDAR RESULTADOS CLEAN ---
             ruta_clean = os.path.join("./data/clean", f"{nombre_key}_clean.csv")
             df_work.to_csv(ruta_clean, index=False)
             t_ref = anotar_paso(nombre_key, "Escritura_CSV_Clean", t_ref)
 
+            # --- GUARDAR EN LA DB ---
+            cargar_tabla_a_db(df_work, nombre_key)
+            t_ref = anotar_paso(nombre_key, "Escritura_BD", t_ref)
+
             print(f"{tabla.upper()}: Procesada correctamente.")
+
+    # --- EJECUTAR CONSULTAS SQL ---
+    ejecutar_consultas_analiticas()
+    t_ref = anotar_paso("Consutlas", "Ejecución Queries SQL", t_ref)
 
     # --- 4. REPORTES Y CIERRE ---
     t_ref = time.time()

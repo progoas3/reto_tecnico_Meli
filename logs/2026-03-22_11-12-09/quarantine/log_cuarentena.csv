@@ -1,0 +1,4 @@
+timestamp,tabla,regla_incumplida,campo_detectado,cantidad_rechazados,ruta_evidencia
+2026-03-22 11:12:09,CLIENTES,R2_Nulos,"cliente_id, email, fecha_registro",12,quarantine/clientes_fallo_r2_nulos.csv
+2026-03-22 11:12:09,PEDIDOS,R1_Duplicados,pedido_id,21,quarantine/pedidos_fallo_r1_duplicados.csv
+2026-03-22 11:12:09,EVENTOS,R2_Nulos,"evento_id, session_id, tipo_evento, duracion_seg",184,quarantine/eventos_fallo_r2_nulos.csv

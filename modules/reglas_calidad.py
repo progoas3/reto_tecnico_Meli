@@ -1,6 +1,6 @@
 import pandas as pd
 import hashlib
-
+import re
 
 # --- REGLAS EXISTENTES (1 al 8) ---
 
@@ -234,7 +234,7 @@ def aplicar_hashing_pii(df):
     Busca dinámicamente columnas de contacto y aplica SHA-256.
     """
     # Identificamos columnas PII comunes en tus CSV
-    palabras_pii = ['nombre', 'apellido', 'email', 'telefono', 'documento']
+    palabras_pii = ['nombre', 'apellido', 'email', 'documento']
     cols_a_hashear = [c for c in df.columns if any(p in c.lower() for p in palabras_pii)]
 
     # Excepción: No queremos hashear 'nombre_producto' o 'nombre_proveedor'
@@ -252,6 +252,63 @@ def aplicar_hashing_pii(df):
             lambda x: hashlib.sha256(str(x).strip().lower().encode()).hexdigest()
             if pd.notnull(x) and str(x).lower() != 'n/a' else x
         )
-
-
     return df_anon, pd.DataFrame()
+
+def imputar_stock_productos(df):
+    """
+    R9: Si la columna stock_disponible tiene nulos, se asume 0 para
+    evitar errores en la gestión de inventario y alertas SQL.
+    """
+    if 'stock_disponible' in df.columns:
+        n_nulos = df['stock_disponible'].isna().sum()
+        if n_nulos > 0:
+            df['stock_disponible'] = df['stock_disponible'].fillna(0).astype(int)
+            print(f"   [R9] Se imputaron {n_nulos} valores nulos en stock_disponible.")
+    return df
+
+
+def estandarizar_y_enmascarar_telefonos(df):
+    """
+    R10: Estandariza teléfonos según el país (Limpieza)
+    y aplica enmascaramiento de privacidad (Governance).
+    """
+    if 'telefono' not in df.columns or 'pais' not in df.columns:
+        return df
+
+    prefijos = {
+        'Colombia': '57', 'Chile': '56', 'Argentina': '54', 'México': '52'
+    }
+
+    def procesar_fila(row):
+        tel = str(row['telefono'])
+        pais = row['pais']
+
+        if pd.isna(row['telefono']) or tel.upper() in ['N/A', 'NAN', '', 'NONE']:
+            return "N/A"
+
+        # 1. LIMPIEZA (Tu lógica actual)
+        solo_numeros = re.sub(r'\D', '', tel)
+        if not solo_numeros: return "N/A"
+
+        codigo_pais = prefijos.get(pais, "")
+        if codigo_pais and solo_numeros.startswith(codigo_pais):
+            numero_limpio = f"+{solo_numeros}"
+        elif codigo_pais:
+            numero_limpio = f"+{codigo_pais}{solo_numeros}"
+        else:
+            numero_limpio = f"+{solo_numeros}"
+
+        # 2. ENMASCARAMIENTO (Requisito de Governance)
+        # "últimos 4 dígitos del teléfono"
+        if len(numero_limpio) > 4:
+            ultimos_4 = numero_limpio[-4:]
+            # Reemplazamos la parte central con asteriscos
+            # Ejemplo: +573118007546 -> +57*******7546
+            cuerpo_oculto = "*" * (len(numero_limpio) - 7)  # Ajustado para dejar prefijo y últimos 4
+            prefijo_visual = numero_limpio[:3]
+            return f"{prefijo_visual}{cuerpo_oculto}{ultimos_4}"
+
+        return numero_limpio
+
+    df['telefono'] = df.apply(procesar_fila, axis=1)
+    return df
