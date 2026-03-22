@@ -1,0 +1,11 @@
+timestamp,tabla,regla,campo_evaluado,total_recibidos,pasan_a_calidad,enviados_a_cuarentena,tasa_error_pct
+2026-03-21 22:30:36,CLIENTES,R1_Duplicados,cliente_id,300,300,0,0.00%
+2026-03-21 22:30:36,CLIENTES,R2_Nulos,Validación de Nulos en campos críticos,300,288,12,4.00%
+2026-03-21 22:30:36,PEDIDOS,R1_Duplicados,pedido_id,1200,1179,21,1.75%
+2026-03-21 22:30:36,PEDIDOS,R2_Nulos,Validación de Nulos en campos críticos,1200,1179,21,1.75%
+2026-03-21 22:30:36,PRODUCTOS,R1_Duplicados,producto_id,80,80,0,0.00%
+2026-03-21 22:30:36,PRODUCTOS,R2_Nulos,Validación de Nulos en campos críticos,80,80,0,0.00%
+2026-03-21 22:30:36,EVENTOS,R1_Duplicados,evento_id,4000,4000,0,0.00%
+2026-03-21 22:30:36,EVENTOS,R2_Nulos,Validación de Nulos en campos críticos,4000,3816,184,4.60%
+2026-03-21 22:30:36,DETALLE_PEDIDOS,R1_Duplicados,item_id,4177,4177,0,0.00%
+2026-03-21 22:30:36,DETALLE_PEDIDOS,R2_Nulos,Validación de Nulos en campos críticos,4177,4177,0,0.00%
