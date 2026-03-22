@@ -2,7 +2,7 @@ from modules.carga import cargar_y_presentar_datos
 from modules.reglas_calidad import *
 from modules.utils import *
 from modules.reporte_calidad import *
-
+import time
 
 def ejecutar_full_pipeline():
     # --- 0. INICIO DE BITÁCORA ---
@@ -76,27 +76,44 @@ def ejecutar_full_pipeline():
             t_ref = anotar_paso(nombre_key, "R2_Nulos", t_ref)
 
             # --- R3: EMAILS ---
+            campo_email = "email" if nombre_key == "clientes" else "owner_email"
             df_work, err3 = validacion_formato_email(df_work)
+            registrar_auditoria(nombre_key, "R3_Email", campo_email, n_entrada, len(df_work), carpeta_logs)
+            registrar_error_y_log(nombre_key, "R3_Email_Invalido", err3, campo_email, carpeta_quarantine, carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R3_Emails", t_ref)
 
             # --- R4: MONEDA ---
+            campo_moneda = "precio_venta" if nombre_key == "productos" else "monto_total"
             df_work, err4 = validacion_valores_positivos(df_work)
+            registrar_auditoria(nombre_key, "R4_Moneda", campo_moneda, n_entrada, len(df_work), carpeta_logs)
+            registrar_error_y_log(nombre_key, "R4_Moneda_Invalida", err4, campo_moneda, carpeta_quarantine,
+                                  carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R4_Moneda", t_ref)
 
             # --- R5: FECHAS ---
+            campo_fecha = "fecha_pedido" if "pedido" in nombre_key else "fecha_registro"
             df_work, err5 = validacion_fechas_dinamica(df_work)
+            registrar_auditoria(nombre_key, "R5_Fechas", campo_fecha, n_entrada, len(df_work), carpeta_logs)
+            registrar_error_y_log(nombre_key, "R5_Fecha_Invalida", err5, campo_fecha, carpeta_quarantine, carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R5_Fechas", t_ref)
 
             # --- R6: CATEGÓRICOS ---
+            campo_cat = "tipo_evento" if nombre_key == "eventos" else "categoria"
             df_work, err6 = validacion_categoricos_dinamica(df_work, nombre_key)
+            registrar_auditoria(nombre_key, "R6_Categoricos", campo_cat, n_entrada, len(df_work), carpeta_logs)
+            registrar_error_y_log(nombre_key, "R6_Categoria_Invalida", err6, campo_cat, carpeta_quarantine,
+                                  carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R6_Categoricos", t_ref)
 
             # --- R7: FORMATO IDS ---
             df_work, err7 = validacion_formato_ids(df_work, pk)
+            registrar_auditoria(nombre_key, "R7_Formato_ID", pk, n_entrada, len(df_work), carpeta_logs)
+            registrar_error_y_log(nombre_key, "R7_ID_Mal_Formato", err7, pk, carpeta_quarantine, carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R7_Formato_ID", t_ref)
 
             # --- R8: HASHING PII ---
             df_work, _ = aplicar_hashing_pii(df_work)
+            registrar_auditoria(nombre_key, "R8_Hashing_PII", "Datos_Sensibles", n_entrada, len(df_work), carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R8_Hashing_PII", t_ref)
 
             # --- GUARDAR RESULTADOS CLEAN ---
