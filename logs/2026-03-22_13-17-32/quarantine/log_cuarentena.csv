@@ -1,6 +1,0 @@
-timestamp,tabla,regla_incumplida,campo_detectado,cantidad_rechazados,ruta_evidencia
-2026-03-22 13:17:32,CLIENTES,R2_Nulos,"cliente_id, email, fecha_registro",12,quarantine/clientes_fallo_r2_nulos.csv
-2026-03-22 13:17:32,PEDIDOS,R1_Duplicados,pedido_id,21,quarantine/pedidos_fallo_r1_duplicados.csv
-2026-03-22 13:17:32,EVENTOS,R1_Duplicados,evento_id,1,quarantine/eventos_fallo_r1_duplicados.csv
-2026-03-22 13:17:32,EVENTOS,R2_Nulos,"evento_id, session_id, tipo_evento, duracion_seg",184,quarantine/eventos_fallo_r2_nulos.csv
-2026-03-22 13:17:32,EVENTOS,Eliminacion de informacion que supera la fecha,evento_id,2302,quarantine/eventos_fallo_eliminacion de informacion que supera la fecha.csv

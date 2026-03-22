@@ -1,7 +1,5 @@
 import duckdb
 import os
-import pandas as pd
-
 
 def cargar_tabla_a_db(df, nombre_tabla, db_path="./data/analitycs/mercado_libre.db"):
     """

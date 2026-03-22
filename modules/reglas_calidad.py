@@ -233,12 +233,12 @@ def aplicar_hashing_pii(df):
     Regla 8: Anonimiza datos sensibles (PII).
     Busca dinámicamente columnas de contacto y aplica SHA-256.
     """
-    # Identificamos columnas PII comunes en tus CSV
+    # Identificamos columnas PII comunes los CSV
     palabras_pii = ['nombre', 'apellido', 'email', 'documento']
     cols_a_hashear = [c for c in df.columns if any(p in c.lower() for p in palabras_pii)]
 
     # Excepción: No queremos hashear 'nombre_producto' o 'nombre_proveedor'
-    # porque no son datos personales del cliente
+    # no son datos personales del cliente
     cols_a_hashear = [c for c in cols_a_hashear if 'producto' not in c and 'proveedor' not in c]
 
     if not cols_a_hashear:
@@ -263,7 +263,7 @@ def imputar_stock_productos(df):
         n_nulos = df['stock_disponible'].isna().sum()
         if n_nulos > 0:
             df['stock_disponible'] = df['stock_disponible'].fillna(0).astype(int)
-            print(f"   [R9] Se imputaron {n_nulos} valores nulos en stock_disponible.")
+            print(f"[R9] Se imputaron {n_nulos} valores nulos en stock_disponible.")
     return df
 
 
