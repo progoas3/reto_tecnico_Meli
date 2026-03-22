@@ -1,10 +1,6 @@
 import pandas as pd
 from datetime import datetime
 import os
-from functools import wraps
-import time
-
-LOG_TIEMPOS = []
 
 def registrar_auditoria(tabla, regla, campo, n_entrada, n_salida, ruta_logs):
     """
