@@ -1,0 +1,6 @@
+duckdb==1.5.1
+Faker==40.11.1
+langchain_groq==1.1.2
+numpy==2.4.3
+pandas==3.0.1
+PyYAML==6.0.3

@@ -1,0 +1,13 @@
+cliente_id,nombre,apellido,email,telefono,ciudad,pais,segmento,fecha_registro,fecha_consentimiento,activo,data_owner,clasificacion_dato,motivo_error
+CLI-00003,Ruth,Medina,,57 323 518 12 00,Hispania,Chile,B2B,2023-08-14,2023-08-17,True,marketing@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00013,Dary,Camargo,,+57 303 116 26 64,Urumita,Perú,Inactivo,2024-06-25,2024-06-27,True,crm@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00036,Héctor,Mosquera,,+57 317 145 72 48,Montería,Colombia,B2C,2023-04-05,2023-04-10,True,crm@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00091,Yerson,Mejía,,+573110916142,Pisba,Chile,Premium,2023-04-29,2023-05-02,True,crm@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00124,Carlos,Gómez,,329 780 75 09,San Juanito,Colombia,B2B,2023-06-28,2023-06-28,True,marketing@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00140,Jorge,Cruz,,+57 607 713 62 95,La Salina,Colombia,B2C,2023-02-16,2023-02-17,True,crm@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00142,Nelson,Bautista,,(+57)6066212767,Tenerife,Colombia,Premium,2023-03-15,2023-03-18,True,crm@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00143,Eder,Cardona,,(+57)3034658855,Soledad,Colombia,B2C,2024-12-27,2025-01-01,True,crm@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00174,Leonardo,Ramos,,+57 320 005 03 17,Espinal,Colombia,B2C,2023-10-28,2023-10-29,False,crm@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00193,Aura,Campo,,(+57) 317 222 12 01,Agrado,Colombia,Premium,2024-07-31,2024-07-31,True,crm@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00225,Eduardo,García,,+57 604 505 78 18,Puerto Parra,México,B2C,2023-10-01,2023-10-03,True,marketing@retailtech.co,confidencial,Nulo crítico en: email
+CLI-00283,Alejandro,Aguirre,,+57 327 019 63 75,Amagá,México,B2C,2023-03-10,2023-03-12,True,marketing@retailtech.co,confidencial,Nulo crítico en: email

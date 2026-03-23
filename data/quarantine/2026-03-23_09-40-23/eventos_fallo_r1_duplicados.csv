@@ -1,0 +1,2 @@
+evento_id,cliente_id,session_id,tipo_evento,timestamp,producto_id,dispositivo,pais,duracion_seg,data_owner,clasificacion_dato,motivo_error
+EVT-0002025,CLI-00035,SES-00000945,add_to_cart,2024-11-12 06:36:10,PROD-0049,tablet,México,87.0,analytics@retailtech.co,público,ID duplicado en evento_id

@@ -1,2 +1,0 @@
-timestamp,tabla,regla_incumplida,campo_detectado,cantidad_rechazados,ruta_evidencia
-2026-03-22 18:22:18,CLIENTES,R2_Nulos,"cliente_id, email, fecha_registro",12,quarantine/clientes_fallo_r2_nulos.csv
