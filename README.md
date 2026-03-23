@@ -45,11 +45,6 @@ Este repositorio contiene una solución completa para una prueba técnica de Dat
 pip install -r requirements.txt
 ```
 
-Ejemplo:
-```bash
-pip install pandas duckdb pyyaml langchain-groq
-```
-
 ## 🚀 Cómo ejecutar el flujo principal (pipeline)
 1. Ejecutar generación del dataset:
 ```bash
