@@ -26,7 +26,7 @@ CATALOGOS_PATH = "./data/catalogos/"
 
 # 2. HERRAMIENTAS
 
-# [NUEVO] Mecanismo de validación de output
+# Mecanismo de validación de output
 def validar_pii(texto: str) -> bool:
     """
     Verifica si el texto contiene patrones de PII (emails o teléfonos).
