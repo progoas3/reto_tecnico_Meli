@@ -1,4 +1,5 @@
 # Configuración del Agente MeLi - Acceso Directo
 credentials:
-  groq_api_key: "Ajusta el api por favor"
+  groq_api_key: "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"
   # https://console.groq.com/keys aca podras generar tu api key, recuerda que es importante mantenerla segura y no compartirla públicamente.
+  # se conserva el api para que el revisor este en la potestad de usarlo o no, dependiendo de su criterio y necesidades.
