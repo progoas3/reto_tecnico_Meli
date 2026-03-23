@@ -30,9 +30,11 @@ def ejecutar_full_pipeline():
 
     # --- 2. CONFIGURACIONES ---
     pk_map = {
-        'CLIENTES': 'cliente_id', 'PEDIDOS': 'pedido_id',
-        'PRODUCTOS': 'producto_id', 'EVENTOS': 'evento_id',
-        'DETALLE_PEDIDOS': 'item_id'
+        'CLIENTES': 'cliente_id',
+        'PEDIDOS': 'pedido_id',
+        'PRODUCTOS': 'producto_id',
+        'EVENTOS': 'evento_id',
+        'DETALLE_PEDIDOS': 'item_id',
     }
 
     config_nulos = {
@@ -124,16 +126,17 @@ def ejecutar_full_pipeline():
             registrar_auditoria(nombre_key, "R9_Manejo stock nulos en productos", "Datos Nulos en productos", n_entrada, len(df_work), carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R9_Manejo stock nulos en productos", t_ref)
 
-            # --- R10:
+            # --- R10 MANEJO FORMATO DE TELEFONOS ---
             df_work = estandarizar_y_enmascarar_telefonos(df_work)
             registrar_auditoria(nombre_key, "R10_MANEJO FORMATO DE TELEFONOS", "Datos Telefonicos en un estandar correcto", n_entrada,
                                 len(df_work), carpeta_logs)
             t_ref = anotar_paso(nombre_key, "R10_MANEJO FORMATO DE TELEFONOS", t_ref)
 
-            # xd
+            # --- APLICAR REGLAS DE GOBIERNO ---
             df_work, fecha_vencida = aplicar_politicas_gobierno_autonoma(df_work, nombre_key)
             registrar_auditoria(nombre_key, "Governanza fecha limite", pk, n_entrada, len(df_work), carpeta_logs)
             registrar_error_y_log(nombre_key, "Eliminacion de informacion que supera la fecha", fecha_vencida, pk, carpeta_quarantine, carpeta_logs)
+            t_ref = anotar_paso(nombre_key, "REGLAS DE GOBIERNO", t_ref)
 
             # --- GUARDAR RESULTADOS CLEAN ---
             ruta_clean = os.path.join("./data/clean", f"{nombre_key}_clean.csv")

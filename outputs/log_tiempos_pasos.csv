@@ -1,64 +1,69 @@
 tabla,paso,duracion_seg,timestamp
-SISTEMA,Carga_Raw_Data,0.046,2026-03-23 11:04:58
-clientes,R1_Duplicados,0.003,2026-03-23 11:04:58
-clientes,R2_Nulos,0.005,2026-03-23 11:04:58
-clientes,R3_Emails,0.002,2026-03-23 11:04:58
-clientes,R4_Moneda,0.002,2026-03-23 11:04:58
-clientes,R5_Fechas,0.004,2026-03-23 11:04:58
-clientes,R6_Categoricos,0.002,2026-03-23 11:04:58
-clientes,R7_Formato_ID,0.002,2026-03-23 11:04:58
-clientes,R8_Hashing_PII,0.002,2026-03-23 11:04:58
-clientes,R9_Manejo stock nulos en productos,0.001,2026-03-23 11:04:58
-clientes,R10_MANEJO FORMATO DE TELEFONOS,0.004,2026-03-23 11:04:58
-clientes,Escritura_CSV_Clean,0.009,2026-03-23 11:04:58
-clientes,Escritura_BD,0.043,2026-03-23 11:04:58
-pedidos,R1_Duplicados,0.005,2026-03-23 11:04:58
-pedidos,R2_Nulos,0.002,2026-03-23 11:04:58
-pedidos,R3_Emails,0.002,2026-03-23 11:04:58
-pedidos,R4_Moneda,0.002,2026-03-23 11:04:58
-pedidos,R5_Fechas,0.004,2026-03-23 11:04:58
-pedidos,R6_Categoricos,0.004,2026-03-23 11:04:58
-pedidos,R7_Formato_ID,0.002,2026-03-23 11:04:58
-pedidos,R8_Hashing_PII,0.001,2026-03-23 11:04:58
-pedidos,R9_Manejo stock nulos en productos,0.001,2026-03-23 11:04:58
-pedidos,R10_MANEJO FORMATO DE TELEFONOS,0.001,2026-03-23 11:04:58
-pedidos,Escritura_CSV_Clean,0.012,2026-03-23 11:04:58
-pedidos,Escritura_BD,0.03939,2026-03-23 11:04:58
-productos,R1_Duplicados,0.003,2026-03-23 11:04:58
-productos,R2_Nulos,0.001,2026-03-23 11:04:58
-productos,R3_Emails,0.002,2026-03-23 11:04:58
-productos,R4_Moneda,0.002,2026-03-23 11:04:58
-productos,R5_Fechas,0.003,2026-03-23 11:04:58
-productos,R6_Categoricos,0.001,2026-03-23 11:04:58
-productos,R7_Formato_ID,0.002,2026-03-23 11:04:58
-productos,R8_Hashing_PII,0.001,2026-03-23 11:04:58
-productos,R9_Manejo stock nulos en productos,0.002,2026-03-23 11:04:58
-productos,R10_MANEJO FORMATO DE TELEFONOS,0.001,2026-03-23 11:04:58
-productos,Escritura_CSV_Clean,0.007,2026-03-23 11:04:58
-productos,Escritura_BD,0.038,2026-03-23 11:04:58
-eventos,R1_Duplicados,0.006,2026-03-23 11:04:58
-eventos,R2_Nulos,0.006,2026-03-23 11:04:58
-eventos,R3_Emails,0.003,2026-03-23 11:04:58
-eventos,R4_Moneda,0.00231,2026-03-23 11:04:58
-eventos,R5_Fechas,0.00469,2026-03-23 11:04:58
-eventos,R6_Categoricos,0.007,2026-03-23 11:04:58
-eventos,R7_Formato_ID,0.004,2026-03-23 11:04:58
-eventos,R8_Hashing_PII,0.001,2026-03-23 11:04:58
-eventos,R9_Manejo stock nulos en productos,0.001,2026-03-23 11:04:58
-eventos,R10_MANEJO FORMATO DE TELEFONOS,0.001,2026-03-23 11:04:58
-eventos,Escritura_CSV_Clean,0.025,2026-03-23 11:04:58
-eventos,Escritura_BD,0.04501,2026-03-23 11:04:59
-detalle_pedidos,R1_Duplicados,0.002,2026-03-23 11:04:59
-detalle_pedidos,R2_Nulos,0.002,2026-03-23 11:04:59
-detalle_pedidos,R3_Emails,0.003,2026-03-23 11:04:59
-detalle_pedidos,R4_Moneda,0.002,2026-03-23 11:04:59
-detalle_pedidos,R5_Fechas,0.001,2026-03-23 11:04:59
-detalle_pedidos,R6_Categoricos,0.001,2026-03-23 11:04:59
-detalle_pedidos,R7_Formato_ID,0.003,2026-03-23 11:04:59
-detalle_pedidos,R8_Hashing_PII,0.001,2026-03-23 11:04:59
-detalle_pedidos,R9_Manejo stock nulos en productos,0.001,2026-03-23 11:04:59
-detalle_pedidos,R10_MANEJO FORMATO DE TELEFONOS,0.001,2026-03-23 11:04:59
-detalle_pedidos,Escritura_CSV_Clean,0.017,2026-03-23 11:04:59
-detalle_pedidos,Escritura_BD,0.044,2026-03-23 11:04:59
-Consutlas,Ejecución Queries SQL,0.055,2026-03-23 11:04:59
-SISTEMA,Generacion_Reporte_Calidad,0.024,2026-03-23 11:04:59
+SISTEMA,Carga_Raw_Data,0.027,2026-03-23 14:59:31
+clientes,R1_Duplicados,0.003,2026-03-23 14:59:31
+clientes,R2_Nulos,0.005,2026-03-23 14:59:31
+clientes,R3_Emails,0.003,2026-03-23 14:59:31
+clientes,R4_Moneda,0.001,2026-03-23 14:59:31
+clientes,R5_Fechas,0.004,2026-03-23 14:59:31
+clientes,R6_Categoricos,0.00202,2026-03-23 14:59:31
+clientes,R7_Formato_ID,0.00198,2026-03-23 14:59:31
+clientes,R8_Hashing_PII,0.003,2026-03-23 14:59:31
+clientes,R9_Manejo stock nulos en productos,0.0,2026-03-23 14:59:31
+clientes,R10_MANEJO FORMATO DE TELEFONOS,0.004,2026-03-23 14:59:31
+clientes,REGLAS DE GOBIERNO,0.006,2026-03-23 14:59:31
+clientes,Escritura_CSV_Clean,0.003,2026-03-23 14:59:31
+clientes,Escritura_BD,0.041,2026-03-23 14:59:32
+pedidos,R1_Duplicados,0.004,2026-03-23 14:59:32
+pedidos,R2_Nulos,0.001,2026-03-23 14:59:32
+pedidos,R3_Emails,0.002,2026-03-23 14:59:32
+pedidos,R4_Moneda,0.001,2026-03-23 14:59:32
+pedidos,R5_Fechas,0.005,2026-03-23 14:59:32
+pedidos,R6_Categoricos,0.004,2026-03-23 14:59:32
+pedidos,R7_Formato_ID,0.002,2026-03-23 14:59:32
+pedidos,R8_Hashing_PII,0.001,2026-03-23 14:59:32
+pedidos,R9_Manejo stock nulos en productos,0.001,2026-03-23 14:59:32
+pedidos,R10_MANEJO FORMATO DE TELEFONOS,0.001,2026-03-23 14:59:32
+pedidos,REGLAS DE GOBIERNO,0.006,2026-03-23 14:59:32
+pedidos,Escritura_CSV_Clean,0.006,2026-03-23 14:59:32
+pedidos,Escritura_BD,0.04101,2026-03-23 14:59:32
+productos,R1_Duplicados,0.002,2026-03-23 14:59:32
+productos,R2_Nulos,0.002,2026-03-23 14:59:32
+productos,R3_Emails,0.001,2026-03-23 14:59:32
+productos,R4_Moneda,0.002,2026-03-23 14:59:32
+productos,R5_Fechas,0.002,2026-03-23 14:59:32
+productos,R6_Categoricos,0.002,2026-03-23 14:59:32
+productos,R7_Formato_ID,0.002,2026-03-23 14:59:32
+productos,R8_Hashing_PII,0.001,2026-03-23 14:59:32
+productos,R9_Manejo stock nulos en productos,0.001,2026-03-23 14:59:32
+productos,R10_MANEJO FORMATO DE TELEFONOS,0.001,2026-03-23 14:59:32
+productos,REGLAS DE GOBIERNO,0.006,2026-03-23 14:59:32
+productos,Escritura_CSV_Clean,0.001,2026-03-23 14:59:32
+productos,Escritura_BD,0.034,2026-03-23 14:59:32
+eventos,R1_Duplicados,0.007,2026-03-23 14:59:32
+eventos,R2_Nulos,0.007,2026-03-23 14:59:32
+eventos,R3_Emails,0.003,2026-03-23 14:59:32
+eventos,R4_Moneda,0.002,2026-03-23 14:59:32
+eventos,R5_Fechas,0.005,2026-03-23 14:59:32
+eventos,R6_Categoricos,0.006,2026-03-23 14:59:32
+eventos,R7_Formato_ID,0.003,2026-03-23 14:59:32
+eventos,R8_Hashing_PII,0.001,2026-03-23 14:59:32
+eventos,R9_Manejo stock nulos en productos,0.001,2026-03-23 14:59:32
+eventos,R10_MANEJO FORMATO DE TELEFONOS,0.001,2026-03-23 14:59:32
+eventos,REGLAS DE GOBIERNO,0.022,2026-03-23 14:59:32
+eventos,Escritura_CSV_Clean,0.007,2026-03-23 14:59:32
+eventos,Escritura_BD,0.04701,2026-03-23 14:59:32
+detalle_pedidos,R1_Duplicados,0.003,2026-03-23 14:59:32
+detalle_pedidos,R2_Nulos,0.002,2026-03-23 14:59:32
+detalle_pedidos,R3_Emails,0.003,2026-03-23 14:59:32
+detalle_pedidos,R4_Moneda,0.002,2026-03-23 14:59:32
+detalle_pedidos,R5_Fechas,0.001,2026-03-23 14:59:32
+detalle_pedidos,R6_Categoricos,0.002,2026-03-23 14:59:32
+detalle_pedidos,R7_Formato_ID,0.002,2026-03-23 14:59:32
+detalle_pedidos,R8_Hashing_PII,0.001,2026-03-23 14:59:32
+detalle_pedidos,R9_Manejo stock nulos en productos,0.001,2026-03-23 14:59:32
+detalle_pedidos,R10_MANEJO FORMATO DE TELEFONOS,0.002,2026-03-23 14:59:32
+detalle_pedidos,REGLAS DE GOBIERNO,0.005,2026-03-23 14:59:32
+detalle_pedidos,Escritura_CSV_Clean,0.012,2026-03-23 14:59:32
+detalle_pedidos,Escritura_BD,0.0409,2026-03-23 14:59:32
+Consutlas,Ejecución Queries SQL,0.056,2026-03-23 14:59:32
+SISTEMA,Generacion_Reporte_Calidad,0.026,2026-03-23 14:59:32

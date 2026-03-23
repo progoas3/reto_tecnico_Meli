@@ -232,7 +232,6 @@ EVT-0000660,,SES-00000372,checkout,2025-12-24 18:07:23,,mobile,Chile,8.0,analyti
 EVT-0000662,CLI-00038,SES-00001684,purchase,2025-07-30 00:12:57,PROD-0032,tablet,Colombia,129.0,analytics@retailtech.co,público
 EVT-0000665,,SES-00000569,page_view,2025-09-03 07:55:28,,tablet,Colombia,500.0,analytics@retailtech.co,público
 EVT-0000666,CLI-00043,SES-00000489,add_to_cart,2025-11-13 09:12:24,PROD-0049,tablet,Argentina,191.0,analytics@retailtech.co,público
-EVT-0000667,CLI-00155,SES-00000523,purchase,2025-03-23 11:57:30,PROD-0042,mobile,Perú,125.0,analytics@retailtech.co,público
 EVT-0000670,,SES-00001781,page_view,2025-03-26 20:10:08,,tablet,Perú,164.0,analytics@retailtech.co,público
 EVT-0000671,,SES-00001684,search,2025-05-06 10:36:50,,desktop,Colombia,7.0,analytics@retailtech.co,público
 EVT-0000672,,SES-00000860,checkout,2025-10-24 22:17:32,,mobile,Argentina,373.0,analytics@retailtech.co,público
