@@ -1,7 +1,3 @@
-# --- SEGURIDAD DE CREDENCIALES ---
-# Ignorar el archivo que contiene mi API KEY real
-config.yaml
-
 # --- ARCHIVOS DE PYTHON Y SISTEMA ---
 __pycache__/
 *.py[cod]
