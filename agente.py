@@ -142,7 +142,7 @@ def agente_meli(pregunta_usuario):
 
         # [SEGURIDAD] Validación de output final
         if not validar_pii(resultado_final):
-            return "⚠️ BLOQUEO DE SEGURIDAD: La respuesta contenía datos personales (PII) y ha sido interceptada."
+            return "BLOQUEO DE SEGURIDAD: La respuesta contenía datos personales (PII) y ha sido interceptada."
 
         return resultado_final
     except Exception as e:
