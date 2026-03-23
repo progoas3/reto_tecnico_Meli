@@ -1,0 +1,21 @@
+# --- SEGURIDAD DE CREDENCIALES ---
+# Ignorar el archivo que contiene mi API KEY real
+config.yaml
+
+# --- ARCHIVOS DE PYTHON Y SISTEMA ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.env
+
+# --- BASES DE DATOS Y TEMPORALES ---
+*.db
+*.log
+
+# --- IDEs (VS Code / PyCharm) ---
+.vscode/
+.idea/
+.DS_Store
