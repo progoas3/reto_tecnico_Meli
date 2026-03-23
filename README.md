@@ -40,12 +40,10 @@ Este repositorio contiene una solución completa para una prueba técnica de Dat
 
 ## ▶️ Pre-requisitos
 1. Python 3.10+ (preferible 3.11).
-2. Instalar dependencias (si no está creado `requirements.txt`, instala con manual):
-   - pandas
-   - duckdb
-   - pyyaml
-   - langchain-groq (u otro cliente LLM según elección de agente)
-   - opcional: streamlit/gradio si se agrega UI.
+2. Instalar dependencias 
+```bash
+pip install -r requirements.txt
+```
 
 Ejemplo:
 ```bash
